@@ -105,8 +105,8 @@ export const host = isDev ? `http://localhost:${port}` : `https://${domain}`
 export const apiBaseUrl = `${host}/api`
 
 export const api = {
-  createPreviewImage: `${apiBaseUrl}/blog/create-preview-image`,
-  searchNotion: `${apiBaseUrl}/blog/search-notion`
+  createPreviewImage: `${apiBaseUrl}/create-preview-image`,
+  searchNotion: `${apiBaseUrl}/search-notion`
 }
 
 // ----------------------------------------------------------------------------
