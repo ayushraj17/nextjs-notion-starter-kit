@@ -237,7 +237,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
             ...props
           }) => (
             <Link
-              href={href}
+              href={`/blog${href}`}
               as={as}
               passHref={passHref}
               prefetch={prefetch}
