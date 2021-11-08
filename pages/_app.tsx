@@ -39,13 +39,16 @@ import { useRouter } from 'next/router'
 import { bootstrap } from 'lib/bootstrap-client'
 import { fathomId, fathomConfig } from 'lib/config'
 import * as Fathom from 'fathom-client'
-
+import Navbar from 'components/Navbar'
+import useDarkMode from 'use-dark-mode'
+import { Footer } from 'components/Footer'
 if (typeof window !== 'undefined') {
   bootstrap()
 }
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
+  const darkMode = useDarkMode(false, { classNameDark: 'dark' })
 
   React.useEffect(() => {
     if (fathomId) {
@@ -63,5 +66,10 @@ export default function App({ Component, pageProps }) {
     }
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      {!router.route?.includes('blog') && <Navbar />}
+      <Component {...pageProps} />
+    </>
+  )
 }

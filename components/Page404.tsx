@@ -6,7 +6,7 @@ import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
 export const Page404: React.FC<types.PageProps> = ({ site, pageId, error }) => {
-  const title = site?.name || 'Notion Page Not Found'
+  const title = site?.name || 'Page Not Found'
 
   return (
     <>
@@ -19,8 +19,8 @@ export const Page404: React.FC<types.PageProps> = ({ site, pageId, error }) => {
         <title>{title}</title>
       </Head>
 
-      <div className={styles.container}>
-        <main className={styles.main}>
+      <div className='custom-container'>
+        <main className='flex flex-col items-center justify-center mt-8'>
           <h1>Page Not Found</h1>
 
           {error ? (

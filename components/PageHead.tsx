@@ -13,7 +13,6 @@ export const PageHead: React.FC<types.PageProps> = ({ site }) => {
         name='viewport'
         content='width=device-width, initial-scale=1, shrink-to-fit=no'
       />
-
       {site?.description && (
         <>
           <meta name='description' content={site.description} />
