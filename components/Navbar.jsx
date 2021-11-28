@@ -104,6 +104,14 @@ const Navbar = () => {
                     </Link>
                   ))}
                 </div>
+                <div className='fixed top-5 right-10'>
+                  {hasMounted && (
+                    <DarkModeButton
+                      value={darkMode.value}
+                      toggle={darkMode.toggle}
+                    />
+                  )}
+                </div>
               </div>
             </div>
             <div className='-mr-2 flex md:hidden'>
@@ -201,131 +209,21 @@ const Navbar = () => {
       </nav>
     </div>
   )
-
-  return (
-    <>
-      <nav className='sticky top-0 z-30 bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-900 backdrop-filter backdrop-blur  firefox:bg-opacity-90'>
-        <div className='custom-container relative'>
-          <div className='flex items-center justify-between h-16'>
-            <div className='w-full justify-between items-center flex'>
-              <Link
-                className='transform transition-all duration-300
-                text-gray-600  hover:text-gray-900
-                dark:text-white
-                dark:text-opacity-60
-                dark:hover:text-opacity-100 px-3 py-2 rounded-md text-sm font-medium'
-                href='/'
-                passHref
-              >
-                <a className='flex items-center'>
-                  <Image
-                    alt='profile'
-                    src='/ayush-raw.png'
-                    // layout="fill"
-                    height={40}
-                    width={40}
-                    className='mx-auto object-cover rounded-full h-16 w-16 '
-                  />
-
-                  <span
-                    className='ml-3 text-2xl tracking-wide  font-medium
-                  dark:text-white 
-                  '
-                  >
-                    Ayush Raj
-                  </span>
-                </a>
-              </Link>
-
-              <div
-                className='ml-10 flex 
-                  flex-col sm:flex-row sm:items-baseline  space-x-4'
-              >
-                {data.map(({ text, link }) => (
-                  <Link href={link} passHref key={text}>
-                    <a
-                      className={`
-                         transform transition-all duration-300
-                         text-gray-600  hover:text-gray-900
-                         dark:text-white
-                         dark:text-opacity-60
-                         dark:hover:text-opacity-100
-                         px-3 py-2 rounded-md text-base font-medium hidden md:block capitalize ${isActive(
-                           link
-                         )}`}
-                    >
-                      {text}
-                    </a>
-                  </Link>
-                ))}
-                <button
-                  className='text-black dark:text-white my-auto h-8 w-8
-                    focus:ring-2
-                    rounded
-                    '
-                  onClick={() => setIsOpen((s) => !s)}
-                >
-                  {!isOpen ? (
-                    <AlignRight className='h-full w-full' />
-                  ) : (
-                    <Cancel className='h-full w-full' />
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='absolute top-0'>
-          <div
-            className='ml-10 flex 
-                  flex-col sm:flex-row sm:items-baseline  space-x-4'
-          >
-            {data.map(({ text, link }) => (
-              <Link href={link} passHref key={text}>
-                <a
-                  className={`
-                         transform transition-all duration-300
-                         text-gray-600  hover:text-gray-900
-                         dark:text-white
-                         dark:text-opacity-60
-                         dark:hover:text-opacity-100
-                         px-3 py-2 rounded-md text-base font-medium capitalize ${isActive(
-                           link
-                         )}`}
-                >
-                  {text}
-                </a>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-    </>
-  )
 }
 
 export default Navbar
 
-const DarkModeButton = ({ theme, setTheme }) => {
-  const [mounted, setMounted] = useState(false)
-
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return null
-
+const DarkModeButton = ({ value, toggle }) => {
   return (
     <button
       className='w-16 h-7 my-auto rounded-full bg-white flex items-center transition duration-300 focus:outline-none shadow'
-      onClick={() => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
-      }}
+      onClick={toggle}
     >
       <div
         id='switch-toggle'
-        className='w-9 h-9 relative rounded-full transition duration-500 transform bg-blue-500 dark:translate-x-full  dark:bg-gray-700 p-1 text-white'
+        className='w-9 h-9 relative rounded-full transition duration-500 transform bg-yellow-500 dark:translate-x-full  dark:bg-gray-700 p-1 text-white'
       >
-        {theme === 'light' ? <LightIcon /> : <DarkIcon />}
+        {value ? <DarkIcon /> : <LightIcon />}
       </div>
     </button>
   )
