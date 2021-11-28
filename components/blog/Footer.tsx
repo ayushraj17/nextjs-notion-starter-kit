@@ -1,12 +1,10 @@
 import * as React from 'react'
-import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
 import * as config from 'lib/config'
 
 import styles from '../styles.module.css'
+import { GitHub, LinkedIn, Twitter, SunLight, HalfMoon } from 'iconoir-react'
 
 // TODO: merge the data and icons from PageSocial with the social links in Footer
-
 export const Footer: React.FC<{
   isDarkMode: boolean
   toggleDarkMode: () => void
@@ -35,7 +33,11 @@ export const Footer: React.FC<{
             onClick={toggleDarkModeCb}
             title='Toggle dark mode'
           >
-            {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+            {isDarkMode ? (
+              <HalfMoon height='32' width='32' />
+            ) : (
+              <SunLight height='32' width='32' />
+            )}
           </a>
         </div>
       ) : null}
@@ -49,7 +51,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaTwitter />
+            <Twitter height='32' width='32' />
           </a>
         )}
 
@@ -61,7 +63,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaGithub />
+            <GitHub height='32' width='32' />
           </a>
         )}
 
@@ -73,7 +75,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaLinkedin />
+            <LinkedIn height='32' width='32' />
           </a>
         )}
       </div>

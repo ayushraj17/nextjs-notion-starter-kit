@@ -3,7 +3,6 @@ import { Copy, Mail, Telegram } from 'iconoir-react'
 // import { NextSeo } from 'next-seo'
 import React, { useEffect, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
-// import { EmailIcon, TelegramIcon, WhatsappIcon } from 'react-share'
 
 const Contact = () => {
   const [state, handleSubmit] = useForm('xqkwelwq')
@@ -48,7 +47,7 @@ const Contact = () => {
   )
 
   return (
-    <section className='custom-container relative to-blue-900 from-blue-800 bg-gradient-to-bl rounded-xl mt-4'>
+    <section className='custom-container relative to-blue-900 from-blue-800 bg-gradient-to-bl lg:rounded-xl mt-4'>
       {/* <NextSeo title='Ayush Raj | Contact' /> */}
 
       <div className='p-4 md:py-16 md:grid md:grid-cols-2 md:gap-10 md:p-8 items-center'>
@@ -59,22 +58,23 @@ const Contact = () => {
               Don't know where to start? drop a message and I will contact you
             </h4>
           </div>
+
           <div className='flex md:flex-col -mt-4 md:mt-1 mb-6 md:mb-0 gap-3 justify-evenly md:justify-start md:gap-8 lg:gap-10'>
             <ContactMethodItem href='https://wa.me/91700'>
               <Telegram className='rounded-lg h-7 w-7 text-blue-400 mx-auto md:m-0' />
-              <span className='md:hidden'>Telegram</span>
+              <h5 className='md:hidden'>Telegram</h5>
               <h5 className='hidden md:block'>@ayush_code</h5>
             </ContactMethodItem>
 
             <ContactMethodItem href='https://wa.me/91700'>
               <FaWhatsapp className='rounded-lg h-7 w-7 text-green-500 mx-auto md:m-0' />
-              <span className='md:hidden'>Whatsapp</span>
+              <h5 className='md:hidden bg-transparent'>Whatsapp</h5>
               <h5 className='hidden md:block'>+1 789 7898729</h5>
             </ContactMethodItem>
 
             <ContactMethodItem href='https://wa.me/91700'>
               <Mail className='rounded-lg h-7 w-7 text-blue-500 mx-auto md:m-0' />
-              <span className='md:hidden'>Email</span>
+              <h5 className='md:hidden'>Email</h5>
               <h5 className='hidden md:block'>meayushraj17@gmail.com</h5>
             </ContactMethodItem>
           </div>

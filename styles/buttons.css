@@ -1,5 +1,5 @@
 .btn {
-  @apply px-4 py-2 text-lg font-medium tracking-wide capitalize transition-all duration-200 transform rounded-lg focus:outline-none hover:-translate-y-1 hover:shadow-lg focus:translate-y-0;
+  @apply px-4 py-2 text-lg font-medium tracking-wide capitalize transition-all duration-200 transform rounded-lg focus:outline-none hover:-translate-y-1 hover:shadow-lg focus:translate-y-0 cursor-pointer;
 }
 
 .btn-primary {
@@ -9,6 +9,10 @@
 .btn-white {
   @apply text-gray-700 hover:text-gray-800 active:text-gray-900 bg-gray-50 hover:bg-gray-100  active:bg-gray-200 focus:ring-4 ring-gray-50 ring-opacity-50;
 }
+.btn-black {
+  @apply bg-gray-700 hover:bg-gray-800 active:bg-gray-900 text-gray-50 hover:text-gray-100  active:text-gray-200 focus:ring-4 ring-gray-900 ring-opacity-50;
+}
+
 .btn-success {
   @apply bg-green-700 hover:bg-green-900 text-white;
 }

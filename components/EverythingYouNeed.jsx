@@ -27,7 +27,7 @@ const data = [
   },
   {
     id: 3,
-    title: 'User Exp Design',
+    title: 'User Experience Design',
     Icon: RulerCombine,
     description:
       'I design your website to be as easy to use as possible while guiding users towards the end goal.',
@@ -72,40 +72,40 @@ const EverythingYouNeed = () => {
       <h2 className='mb-4 md:mb-8 '>
         Everything you need to build your website
       </h2>
-      <div className='grid gap-4 md:grid-cols-2 md:gap-10 lg:grid-cols-3'>
+      <div className='grid gap-4 md:grid-cols-2 md:gap-10 3xl:grid-cols-3'>
         {data.map(({ id, title, Icon, description, color }) => (
           <article
             key={color}
-            className='border-gray-50 dark:border-gray-800 border-1 p-4 rounded-xl shadow b-4 bg-white dark:bg-gray-900'
+            className='border-gray-50 dark:border-gray-800 border-2 p-4 rounded-xl shadow b-4 bg-white dark:bg-gray-800'
           >
             <div className={`mb-2 flex items-center`}>
               <span
                 className={cs(
                   'p-2 rounded-lg h-10 w-10 flex items-center justify-center',
                   {
-                    'bg-indigo-100': color === 'indigo',
-                    'bg-yellow-100': color === 'yellow',
-                    'bg-purple-100': color === 'purple',
-                    'bg-blue-100': color === 'blue',
-                    'bg-green-100': color === 'green',
-                    'bg-pink-100': color === 'pink'
+                    'bg-indigo-500': color === 'indigo',
+                    'bg-yellow-500': color === 'yellow',
+                    'bg-purple-500': color === 'purple',
+                    'bg-blue-500': color === 'blue',
+                    'bg-green-500': color === 'green',
+                    'bg-pink-500': color === 'pink'
                   }
                 )}
               >
                 <Icon
                   className={cs({
-                    'text-indigo-600': color === 'indigo',
-                    'text-yellow-600': color === 'yellow',
-                    'text-purple-600': color === 'purple',
-                    'text-blue-600': color === 'blue',
-                    'text-green-600': color === 'green',
-                    'text-pink-600': color === 'pink'
+                    'text-indigo-50': color === 'indigo',
+                    'text-yellow-50': color === 'yellow',
+                    'text-purple-50': color === 'purple',
+                    'text-blue-50': color === 'blue',
+                    'text-green-50': color === 'green',
+                    'text-pink-50': color === 'pink'
                   })}
                 />
               </span>
               <h3 className='ml-4 font-semibold'>{title}</h3>
             </div>
-            <p className='text-gray-600'>{description}</p>
+            <p className='text-gray-400'>{description}</p>
           </article>
         ))}
       </div>

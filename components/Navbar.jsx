@@ -69,13 +69,13 @@ const Navbar = () => {
   return (
     <div
       ref={ref}
-      className='sticky top-0 z-30 sm:bg-opacity-50 bg-gray-100 sm:dark:bg-opacity-50 dark:bg-gray-900 sm:backdrop-filter sm:backdrop-blur  firefox:bg-opacity-90'
+      className='sticky top-0 z-30 sm:bg-opacity-50 bg-white sm:dark:bg-opacity-50 dark:bg-gray-900 sm:backdrop-filter sm:backdrop-blur  firefox:bg-opacity-90'
     >
       <nav>
         <div className='custom-container'>
           <div className='flex items-center justify-between h-16'>
             <div className='flex items-center w-full'>
-              <div className='flex-shrink-0 flex gap-3 items-center'>
+              <a className='flex-shrink-0 flex gap-3 items-center' href='/'>
                 <img
                   className='h-8 w-8'
                   src='/android-chrome-192x192.png'
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <h3 className='dark:text-white text-gray-900 tracking-wider'>
                   {getSiteConfig('name')}
                 </h3>
-              </div>
+              </a>
               <div className='hidden md:block flex-1'>
                 <div className='ml-auto w-full justify-end flex items-baseline space-x-4'>
                   {data.map(({ text, link }) => (
@@ -110,7 +110,9 @@ const Navbar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type='button'
-                className='bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white'
+                className={`${
+                  !darkMode.value ? 'btn-white' : 'btn-black'
+                } inline-flex items-center justify-center p-2 rounded-md`}
                 aria-controls='mobile-menu'
                 aria-expanded='false'
               >
@@ -177,18 +179,19 @@ const Navbar = () => {
                 ))}
                 <div className='px-3 py-2 flex justify-center'>
                   {hasMounted ? (
-                    <a
-                      className={`btn btn-white text-lg shadow-sm flex gap-2 transition-all duration-500`}
+                    <button
+                      className={`btn ${
+                        darkMode.value ? 'btn-white' : 'btn-black'
+                      } text-lg shadow-sm flex gap-2 transition-all duration-500`}
                       onClick={darkMode.toggle}
-                      title='Toggle dark mode'
                     >
                       {!darkMode.value ? (
-                        <HalfMoon className='text-purple-600' />
+                        <HalfMoon className='text-purple-400' />
                       ) : (
                         <SunLight className='text-yellow-500' />
                       )}
                       Use {!darkMode.value ? 'Dark' : 'Light'} Mode
-                    </a>
+                    </button>
                   ) : null}
                 </div>
               </div>

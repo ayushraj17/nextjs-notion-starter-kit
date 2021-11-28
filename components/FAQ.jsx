@@ -8,7 +8,7 @@ const FAQ = () => {
     <div className='mt-14'>
       <div className='relative'>
         <div
-          className='text-9xl font-extrabold text-gray-200 dark:text-gray-900 text-center'
+          className='text-9xl font-extrabold text-gray-200 dark:text-gray-800 text-center'
           style={{ fontSize: '21vh' }}
         >
           FAQ
@@ -63,7 +63,16 @@ const data = [
 function QA() {
   return (
     <div className='w-full px-4 pt-10'>
-      <div className='w-full max-w-xl p-2 mx-auto bg-white dark:bg-gray-900 rounded-2xl flex flex-col gap-3'>
+      <Transition
+        show
+        enter='transition duration-100 ease-out'
+        enterFrom='transform scale-95 opacity-0 height-0'
+        enterTo='transform scale-100 opacity-100 height-auto'
+        leave='transition duration-75 ease-out'
+        leaveFrom='transform scale-100 opacity-100'
+        leaveTo='transform scale-95 opacity-0 height-0'
+        className='w-full max-w-xl p-2 mx-auto bg-white dark:bg-gray-900 rounded-2xl flex flex-col gap-3'
+      >
         {data.map(({ question, answer }) => (
           <Disclosure key={question}>
             {({ open }) => (
@@ -92,9 +101,9 @@ function QA() {
 
                 <Transition
                   show={open}
-                  enter='transition duration-100 ease-out'
-                  enterFrom='transform scale-95 opacity-0 h-0'
-                  enterTo='transform scale-100 opacity-100 h-full'
+                  enter='transition duration-500 ease-out'
+                  enterFrom='transform scale-95 opacity-0 max-h-0'
+                  enterTo='transform scale-100 opacity-100 max-h-64'
                   leave='transition duration-75 ease-out'
                   leaveFrom='transform scale-100 opacity-100'
                   leaveTo='transform scale-95 opacity-0'
@@ -110,7 +119,7 @@ function QA() {
             )}
           </Disclosure>
         ))}
-      </div>
+      </Transition>
     </div>
   )
 }

@@ -5,6 +5,9 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      transitionProperty: {
+        height: 'height'
+      },
       //   typography: (theme) => ({
       //     DEFAULT: {
       //       css: {

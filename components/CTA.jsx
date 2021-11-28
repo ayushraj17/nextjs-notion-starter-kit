@@ -14,9 +14,11 @@ const CTA = () => {
           look pretty or writing clever code. I listen to your needs, ensuring
           you get a product you’re happy with
         </p>
-        <span className='mt-6'>
-          <button className='btn btn-white'>Grow my brand</button>
-        </span>
+        <div className='mt-6 w-full'>
+          <button className='btn btn-white w-full sm:w-auto'>
+            Grow my brand
+          </button>
+        </div>
       </div>
       <span className='w-96 hidden sm:block'>
         <Image height='200px' className='ml-auto' />

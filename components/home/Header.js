@@ -7,8 +7,8 @@ import { RichText } from "prismic-reactjs";
  */
 const Header = ({ image, headline, description }) => {
 	return (
-		<div className="home">
-			<div
+		<Transition className="home">
+			<Transition
 				className="blog-avatar"
 				style={{ backgroundImage: `url(${image.url})` }}
 			/>
@@ -17,7 +17,7 @@ const Header = ({ image, headline, description }) => {
 			{/* <style jsx global>
 				{headerStyles}
 			</style> */}
-		</div>
+		</Transition>
 	);
 };
 
