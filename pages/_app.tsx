@@ -15,7 +15,7 @@ import 'prismjs/themes/prism-coy.css'
 // import 'rc-dropdown/assets/index.css'
 
 // used for rendering equations (optional)
-import 'katex/dist/katex.min.css'
+// import 'katex/dist/katex.min.css'
 
 // core styles for static tweet renderer (optional)
 import 'react-static-tweets/styles.css'
@@ -34,12 +34,13 @@ import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-bash'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { bootstrap } from 'lib/bootstrap-client'
 import { fathomId, fathomConfig } from 'lib/config'
 import * as Fathom from 'fathom-client'
-
+import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
 if (typeof window !== 'undefined') {
   bootstrap()
 }
@@ -63,5 +64,35 @@ export default function App({ Component, pageProps }) {
     }
   }, [])
 
-  return <Component {...pageProps} />
+  const isBlog = router.route?.includes('blog')
+
+  /**
+   * In /blog the navbar is rendered straight from Notion,
+   * if you are on /blog nothing happens
+   * on click of Author image it should take it back to home page
+   */
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.pathname === '/blog' &&
+      router.isReady
+    ) {
+      const nav = Array.from(
+        document.getElementsByClassName('breadcrumb active')
+      )[0] as HTMLElement
+
+      if (nav) {
+        nav.addEventListener('click', () => router.push('/'))
+        nav.style.cursor = 'pointer'
+      }
+    }
+  }, [isBlog])
+
+  return (
+    <>
+      {!isBlog && <Navbar />}
+      <Component {...pageProps} />
+      {!isBlog && <Footer />}
+    </>
+  )
 }

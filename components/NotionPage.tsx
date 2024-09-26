@@ -30,7 +30,7 @@ import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
 import { PageActions } from './PageActions'
-import { Footer } from './Footer'
+import { Footer } from 'components/blog/Footer'
 import { PageSocial } from './PageSocial'
 import { GitHubShareButton } from './GitHubShareButton'
 import { ReactUtterances } from './ReactUtterances'
@@ -88,7 +88,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const isLiteMode = lite === 'true'
   const searchParams = new URLSearchParams(params)
 
-  const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
+  const darkMode = useDarkMode(false, { classNameDark: 'dark' })
 
   if (router.isFallback) {
     return <Loading />
@@ -237,7 +237,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
             ...props
           }) => (
             <Link
-              href={href}
+              href={`/blog${href}`}
               as={as}
               passHref={passHref}
               prefetch={prefetch}
